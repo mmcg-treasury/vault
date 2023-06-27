@@ -1,0 +1,36 @@
+import os
+
+def create_package(package_name):
+    package_dir = package_name.lower().replace(" ", "_")
+    os.makedirs(package_dir)
+    init_file = os.path.join(package_dir, "__init__.py")
+    open(init_file, 'a').close()
+
+def create_file(package_name, file_name):
+    package_dir = package_name.lower().replace(" ", "_")
+    file_path = os.path.join(package_dir, file_name + ".py")
+    open(file_path, 'a').close()
+
+def create_structure():
+    os.makedirs("metaverse_multiverse_central_bank")
+
+    # Create central_bank package
+    create_package("central_bank")
+    create_file("central_bank", "central_bank")
+    create_file("central_bank", "vault")
+
+    # Create cards package
+    create_package("cards")
+    create_file("cards", "credit_card")
+    create_file("cards", "debit_card")
+
+    # Create logs package
+    create_package("logs")
+    create_file("logs", "transaction_log")
+
+    # Create main.py
+    main_file = os.path.join("metaverse_multiverse_central_bank", "main.py")
+    open(main_file, 'a').close()
+
+if __name__ == "__main__":
+    create_structure()
